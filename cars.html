@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+    crossorigin="anonymous"
+    />
+    <!-- style link -->
+    <link rel="stylesheet" href="css/maegler.css" />
+    <!-- normalize library -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- font awesome library -->
+
+    <script src="https://kit.fontawesome.com/06b58a135e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+    />
+    <title>Product Page</title>
+</head>
+<body>
+    <!-- Start Navbar -->
+    <div class="home">
+        <nav class="main-nav">
+          <a href="http://maegler.com"
+            ><img class="logo" src="images/logo-dark.png" alt="Logo"
+          /></a>
+          <div class="nav-btns" id="navbtns">
+            <a href="http://maegler.com/login" class="cta-login">Login</a>
+            <a href="http://maegler.com/new-article" class="cta-btn"
+              ><i class="fa-solid fa-circle-plus"></i>Sell Products</a
+            >
+          </div>
+          <i class="fas fa-bars" onclick="togglemenu()"></i>
+        </nav>
+      </div>
+    <!-- End Navbar -->
+    <!-- Start Project Page -->
+      <div class="container w-75">
+          <div class="article">
+              <div class="prod">
+                  <div class="img-gallery">
+                    <div class="big-img">
+                      <img src="images/car2.jpg" id="big-img">
+                    </div>
+                    <div class="small-imgs">
+                      <img src="images/car2.jpg" onclick="myFunc(this)">
+                      <img src="images/car3.jpg" onclick="myFunc(this)">
+                      <img src="images/car4.jpg" onclick="myFunc(this)">
+                      <img src="images/car5.jpg" onclick="myFunc(this)">
+                      <img src="images/car6.jpg" onclick="myFunc(this)">
+                    </div>
+                  </div>
+                  <div class="prod-content">
+                    <div class="price-infos">
+                      <h5 class="text-capitalize">Audi A3 R-Line Model 2021</h5>
+                      <p>200000 Dhs</p>
+                    </div>
+                    <table class="table table-light">
+                      <tr>
+                        <th colspan="2" class="text-center text-capitalize">specifications</th>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">marque</th>
+                        <td class="text-capitalize text-right">Audi</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">modele</th>
+                        <td class="text-capitalize text-right">A3</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">année modele</th>
+                        <td class="text-capitalize text-right">2021</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">kilométrage</th>
+                        <td class="text-capitalize text-right">1000 KM</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">type de carburant</th>
+                        <td class="text-capitalize text-right">Diesel</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">puissance</th>
+                        <td class="text-capitalize text-right">230 CH</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">boite a vitesse</th>
+                        <td class="text-capitalize text-right">Auto</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">nombre de porte</th>
+                        <td class="text-capitalize text-right">3</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">origine</th>
+                        <td class="text-capitalize text-right">GERMANY</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">conducteur</th>
+                        <td class="text-capitalize text-right">1</td>
+                      </tr>
+                      <tr>
+                        <td class="text-capitalize">état</th>
+                        <td class="text-capitalize text-right">Nouveau</td>
+                      </tr>
+                    </table>
+                    <div class="description">
+                      <h5 class="text-capitalize mx-2 my-2">description</h5>
+                      <p class="mx-2 item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt voluptatum, aspernatur voluptatibus repellat inventore quas provident sequi vero similique vitae.</p>
+                    </div>
+                  </div>
+              </div>
+              <div class="seller">
+                <div class="seller-info">
+                  <div class="user-img">
+                    <a href="maegler.shop?id="><i class="fa-solid fa-circle-user"></i></a>
+                  </div>
+                  <div class="user-info">
+                    <p class="full-name">Nafi Abdo</p>
+                    <a class="mail" href="mailto:nafi-abdo@gmail.com">nafi-abdo@gmail.com</a>
+                  </div>
+                </div>
+                <div class="seller-contact">
+                  <a href="wa.me/" class="btn btn-success text-capitalize"><i class="fa-brands fa-whatsapp"></i> &nbsp; whatsapp</a>
+                  <a class="btn btn-warning text-capitalize" href="tel:<?=$row['tel']?>">Contact seller</a>
+                </div>
+              </div>
+          </div>
+      </div>
+    <!-- End Project Page -->
+    <!-- Start Footer -->
+    <div class="footer-holder" id="footer">
+      <footer class="footer">
+        <div class="maeg">
+          <img src="images/logo-dark.png">
+          <p class="first-child">Maegler is an offline shop that you can find any type of product you search for. <hr class="footer-hr"></p><br>
+          <p class="second-child">So what are you waiting go and explore all products</p>
+          <p class="last-child">follow us</p>
+          <div class="social">
+            <a href="facebook.com/maegler.shop"><i class="fa-brands fa-facebook"></i></a>
+            <a href="youtube.com/maegler.shop"><i class="fa-brands fa-youtube"></i></a>
+            <a href="twitter.com/maegler.shop"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+      </footer>
+      <div class="copy">
+        <p>copyright <span>maegler</span> &copy; 2022</p>
+      </div>
+    </div>
+    <!-- End Footer -->
+
+    <!-- Start Scripts Sources -->
+    <script src="js/jquery.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- End Scripts Sources -->
+</body>
+</html>

@@ -1,0 +1,414 @@
+/* Start Variables */
+:root{
+--primary-color: #ffbc20;
+--hover-color: #f2c335;
+--gray-color: #F2F2F2;
+--p-tag-color: #777;
+--dark-color: #2d2b2c;
+--header-height: 73.56px;
+--trans-duration: 0.4s;
+--section-padding: 30px;
+}
+/* End Variables */
+/* Global Rules */
+html{
+scroll-behavior: smooth;
+}
+*{
+margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body{
+font-family: 'Poppins', sans-serif;
+background-color: var(--gray-color);
+background-size: cover;
+background-position: center;
+background-repeat: repeat;
+}
+::selection{
+background-color: var(--primary-color);
+color: white;
+}
+/* .signup-body{
+background-color: white;
+} */
+ul{
+list-style: none;
+}
+a {
+text-decoration: none;
+}
+/* End Media Queries */
+/* Start Navbar */
+.navbar{
+box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.048);
+}
+.navbar .myNav{
+flex-direction: row-reverse;
+}
+.navbar .navbar-brand .logo{
+width: 80px;
+}
+.navbar-light .navbar-toggler{
+border-color: transparent;
+}
+.navbar-nav .nav-item .login-btn{
+color: #2d2b2c;
+transition: .4s;
+}
+.navbar-nav .nav-item .login-btn:hover{
+color: #ffbc20;
+}
+.navbar-nav .nav-item .cta-btn{
+background-color: #ffbc20;
+color: #2d2b2c;
+border-radius: 5px;
+margin-left: 10px;
+/* -webkit-animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both; */
+/* animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both; */
+transition: .4s;
+}
+@-webkit-keyframes shake-horizontal {
+0%,
+100% {
+-webkit-transform: translateX(0);
+        transform: translateX(0);
+}
+10%,
+30%,
+50%,
+70% {
+-webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+}
+20%,
+40%,
+60% {
+-webkit-transform: translateX(0);
+        transform: translateX(0);
+}
+80% {
+-webkit-transform: translateX(8px);
+        transform: translateX(8px);
+}
+90% {
+-webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
+}
+}
+@keyframes shake-horizontal {
+0%,
+100% {
+-webkit-transform: translateX(0);
+        transform: translateX(0);
+}
+10%,
+30%,
+50%,
+70% {
+-webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+}
+20%,
+40%,
+60% {
+-webkit-transform: translateX(10px);
+        transform: translateX(10px);
+}
+80% {
+-webkit-transform: translateX(8px);
+        transform: translateX(8px);
+}
+90% {
+-webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
+}
+}
+
+.navbar-nav .nav-item .cta-btn .fa-solid{
+margin-right: 5px;
+}
+.navbar-nav .nav-item .cta-btn:hover{
+color: white;
+}
+@media (max-width: 991px) {
+.navbar-nav .nav-item .cta-btn{
+width: fit-content;
+margin-left: 0;
+padding: 8px;
+}
+}
+
+/* End Navbar */
+
+/* Start View */
+.view{
+    width: 60%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.view p{
+    margin-bottom: 0;
+}
+.view-mode{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.listView, .gridView{
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.listView:hover, .gridView:hover{
+    background-color: rgba(204, 204, 204, 0.3);
+}
+.active{
+    color: blue;
+}
+/* End View */
+
+/* Start Results */
+.results{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.results .box{
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(204, 204, 204, 0.384);
+}
+.results .box img{
+    max-width: 100%;
+}
+.results .product-info {
+    padding: 5px 0 0 5px;
+}
+.results .product-info h4{
+    font-size: 15px;
+}
+.results .product-info p{
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.results .desc{
+    padding-left: 8px;
+}
+.results .desc p{
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.results .view{
+    width: 100%;
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    margin-top: 0;
+}
+.results .view a{
+    background-color: var(--primary-color);
+    padding: 5px 10px;
+    text-align: right;
+    border-radius: 5px;
+    color: var(--dark-color);
+    font-size: 14px;
+
+}
+.results .view a:hover{
+    color: white;
+    text-decoration: none;
+}
+/* End Results */
+/* Start List View */
+.list-view{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+.list-view .box{
+    display: flex;
+    gap: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(204, 204, 204, 0.384);
+    margin-bottom: 10px;
+}
+.list-view .product-info{
+    flex-basis: 50%;
+}
+.list-view .box img{
+    max-width: 40%;
+}
+.list-view .box .prod-holder{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.list-view .box .prod-holder .view{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.list-view .box .prod-holder .view a{
+    width: 120px;
+    background-color: var(--primary-color);
+    padding: 8px 10px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    transition: var(--trans-duration);
+}
+.list-view .box .prod-holder .view a:hover{
+    text-decoration: none;
+    box-shadow: 0 2px 10px 1px #0000001f;
+}
+
+/* End List View */
+
+/* Start Media Query */
+@media (max-width: 767px) {
+    .list-view, .view, .results{
+        width: 90%;
+    }
+    .list-view .box{
+        height: 126px;
+    }
+    .list-view .box .product-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 10px;
+    }
+    .list-view .box .product-info h4{
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+    .list-view .box .product-info p{
+        font-size: 10px;
+        margin-bottom: 0;
+    }
+    .list-view .box .desc{
+        font-size: 10px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .list-view .box .desc p{
+        margin-bottom: 0;
+    }
+    .list-view .box .prod-holder .view a{
+        width: 100%;
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+}
+/* End Media Query */
+
+
+/* Start Footer */
+.footer-holder{
+    width: 100%;
+    background-color: white;
+    margin-bottom: -30px;
+}
+.footer{
+    width: 50%;
+    margin-top: 100px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@media (max-width: 767px) {
+    .footer{
+        width: 80%;
+    }
+}
+.footer .maeg{
+    padding: 20px 0;
+}
+.footer .maeg img{
+    width: 100px;
+    margin-bottom: 15px;
+}
+.footer-hr{
+    width: 40%;
+    margin-bottom: 0;
+    border: 1px solid var(--primary-color);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.footer .maeg .first-child{
+    font-size: 13px;
+    color: #777;
+}
+.footer .maeg .second-child{
+    font-size: 13px;
+    color: #777;
+    margin-top: -25px;
+}
+.footer .maeg .last-child{
+    font-size: 20px;
+    color: var(--dark-color);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.footer .social{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: -10px;
+}
+.footer .social a .fa-facebook, .footer .social a .fa-youtube, .footer .social a .fa-twitter{
+    font-size: 22px;
+    color: var(--primary-color);
+}
+.copy{
+    background-color: #777;
+    padding: 15px 0;
+    text-align: center;
+}
+.copy p{
+    margin-bottom: 0;
+    text-transform: capitalize;
+    color: white;
+}
+.copy span{
+    color: var(--primary-color);
+}
+/* End Footer */

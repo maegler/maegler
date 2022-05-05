@@ -1,0 +1,190 @@
+<!-- <?php 
+    session_start();
+    $con=mysqli_connect('127.0.0.1','root','','maegler') or die(mysqli_error($con));
+    if (isset($_POST['submit'])) {
+    extract($_POST);
+        if($password != $conf){
+            echo 'password is not correct';
+        }
+        else {
+            $query = "SELECT * FROM users where email = '$email'";
+            $result = mysqli_query($con,$query) or die(mysqli_error($con));
+            $row = mysqli_fetch_assoc($result);
+            if ($row != null) {
+                echo "email already exist";
+            }
+            else {
+                $verification_code = rand(100000,999999);
+                $_SESSION['verification_code'] = $verification_code;
+                $_SESSION['email'] = $email;
+                $subject = "verifiy your email";
+                $body = "your verification_code $verification_code";
+                $sender = "From: abdellatifn38@gmail.com";
+                if(!mail($email, $subject, $body, $sender)){
+                    ?>   
+                    <script>
+                        alert('invalid email');
+                    </script>
+                <?php 
+                }else{
+                    $encrypted_password = md5($password);
+                    $query = "INSERT into users(fname,lname,email,password,number,verification_code) values('$fname','$lname','$email','$encrypted_password','$number','$verification_code')";
+                    mysqli_query($con,$query) or die(mysqli_error($con));
+                    header('location:verification.php');
+                }
+            }
+        }
+    }
+
+ ?>  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <!-- style link -->
+    <link rel="stylesheet" href="css/maegler.css" />
+    <!-- normalize library -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- font awesome library -->
+
+    <script src="https://kit.fontawesome.com/06b58a135e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        .validation{
+            font-size: 12px;
+            color: white;
+            text-transform: capitalize;
+            margin: 5px 0;
+            text-align: left;
+            padding-left: 110px;
+        }
+        .fa-check{
+            color: green;
+            position: relative;
+            right: 0;
+        }
+    </style>
+    <title>Register Your Account</title>
+</head>
+<body class="signup-body">
+    <div class="container-fluid">
+        <div class="signup">
+            <div class="signup-img">
+                <img src="images/Sign Up.png" alt="">
+            </div>
+            <div class="signup-form">
+                <a href="" class="logo"><img src="images/logo-dark.png" alt=""></a>
+                <form action="" method="POST" class="form">
+                    <h4><span>create </span>your account</h4>
+                    <input type="text" name="fname" placeholder="full name" id="full-name" onkeyup="validateName()"><br>
+                    <div class="validation" id="fname-error">required</div>
+
+                    <input type="text" name="email" placeholder="email" id="email" onkeyup="validateEmail()"><br>
+                    <div class="validation" id="email-error">required</div>
+
+                    <input type="text" name="number" placeholder="phone number" id="number" onkeyup="validateNum()"><br>
+                    <div class="validation" id="number-error">required</div>
+
+                    <input type="password" name="password" placeholder="password" id="password" onkeyup="validatePass()"><br>
+                    <div class="validation" id="password-error">required</div>
+
+                    <input type="password" name="conf" placeholder="confirm password" id="conf-password" onkeyup="validateConf()"><br>
+                    <div class="validation" id="confirm-error">required</div>
+
+                    <button class="signup-btn" type="submit" name ="submit" id="signupBtn">signup</button>
+                    <span class="already">already have an account? <a href="login.html">Login here</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let fnameError = document.getElementById("fname-error");
+        let emailError = document.getElementById("email-error");
+        let numberError = document.getElementById("number-error");
+        let passwordError = document.getElementById("password-error");
+        let cpasswordError = document.getElementById("confirm-error");
+        let signupBtn = document.getElementById("signupBtn");
+        
+        // For full name field
+        function validateName(){
+            let fullName = document.getElementById("full-name").value;
+
+            if(fullName.lenght == 0){
+                fnameError.innerHTML = "full name is required";
+                return false;
+            }
+            if(!fullName.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                fnameError.innerHTML = "please write full name";
+                fnameError.style.color = "red";
+                return false;
+            }
+            fnameError.innerHTML = "valid <i class='fa-solid fa-check'></i>";
+            fnameError.style.color = "green";
+            return true;
+        }
+
+        //for email field
+
+        //for phonenumber field
+        function validateNum(){
+            let number = document.getElementById("number").value;
+
+            if(number.lenght == 0){
+                numberError.innerHTML = "phone number is required";
+                numberError.style.color = "red";
+                return false;
+            }
+            if(!number.match(/^[0-9]{10}$/)){
+                numberError.innerHTML = "write your full number";
+                numberError.style.color = "red";
+                return false;
+            }
+            numberError.innerHTML = "valid <i class='fa-solid fa-check'></i>";
+            numberError.style.color = "green";
+            return true;
+            
+
+        }    
+
+        //for email field
+        function validateEmail(){
+            let email = document.getElementById("email").value;
+
+            if(email.length == 0){
+                emailError.innerHTML = "email is required";
+                emailError.style.color = "red";
+                return false;
+            }
+            if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2-4}$/)){
+                emailError.innerHTML = "Invalid email format";
+                emailError.style.color = "red";
+                return false;
+            }
+            emailError.innerHTML = "valid <i class='fa-solid fa-check'></i>";
+            emailError.style.color = "green";
+            return true;
+        }
+        
+        </script>
+    <script src="assets/js/jquery.min.js?h=84e399b8f2181ccd73394fdeddff1638"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=2504f2315ca47ea4d62e67e20a5551d7"></script>
+</body>
+</html>
